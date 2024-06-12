@@ -1,0 +1,52 @@
+PROCÉDURE DU MVC :
+***************************************
+1. CRÉATION DE LA ROUTE (Dans App.php)*
+***************************************
+=> En GET si on veut renvoyer une vue
+=> En POST si on doit traiter des données envoyées depuis un formulaire
+1er paramètre : le nom de la route (ex : '/ma-route')
+2ème paramètre : dans un tableau, le nom du Controller, sa méthode (ex : [HomeController::class, 'home'])
+
+
+
+***************************
+2.CRÉATION DU CONTROLLER :*
+***************************
+Créer un fichier de contrôleur dans le répertoire App/Controller (si pas existant)
+Créer une méthode publique dans cette classe correspondant à celle spécifiée dans la route (ex : home).
+
+
+***********************
+3.CRÉATION DE LA VUE :*
+***********************
+Dans le dossier "views", on crée un dossier puis un fichier (attention : extension en .html.php)
+
+
+***************************************
+4.APPEL DE LA VUE DANS LE CONTROLLER :*
+***************************************
+Pour appeler une vue :
+On instancie la classe View et on lui donne l'emplacement de la vue sous la forme 'dossier/fichier' :
+$view = new View('dossier/fichier');
+Ensuite, on rend la vue : $view->render($data);
+À noter : si des données doivent être envoyées à la vue, c'est dans les parenthèses de render que l'on indique.
+
+
+**************************
+5.LES DONNÉES DE LA BDD :*
+**************************
+Si on a besoin de récupérer des informations dans la BDD, il faut créer les méthodes dans les repository correspondant.
+C'est au controller d'appeler les méthodes du repository à travers AppRepoManager pour les transmettre à la vue si besoin.
+N.B : Il est tout à fait possible d'appeler une méthode d'un repository directement dans une vue si besoin.
+
+
+**************
+**CONCLUSION**
+**************
+Google est votre meilleur ami, le support de cours aussi :) 
+ATTENTION à ChatGPT et autre copilot, il peut parfois vous inventer une vie car le moteur a été fait à la main par nos soins
+
+Soyez organiser et attentif aux fautes de syntaxes et essayez toujours de finir une tache que vous avez commencer
+car ca peut vite devenir une usine à gaz si plain de chose sont commencé et rien de fini 
+
+GOOD LUCK ;) 
