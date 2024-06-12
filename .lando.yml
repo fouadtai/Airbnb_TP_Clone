@@ -1,4 +1,4 @@
-name: appli-vierge-poo
+name: Airbnb_TP_Fouad-poo
 recipe: lamp
 config:
   php: '8.2'
