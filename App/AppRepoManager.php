@@ -2,6 +2,14 @@
 
 namespace App;
 
+use App\Repository\EquipementsRepository;
+use App\Repository\InformationRepository;
+use App\Repository\LogementEquipementRepository;
+use App\Repository\LogementRepository;
+use App\Repository\MediaRepository;
+use App\Repository\ReservationsRepository;
+use App\Repository\TypeLogementRepository;
+use App\Repository\UserRepository;
 use Core\Repository\RepositoryManagerTrait;
 
 class AppRepoManager
@@ -9,21 +17,66 @@ class AppRepoManager
   //on récupère le trait RepositoryManagerTrait
   use RepositoryManagerTrait;
 
-  //on déclare une propriété privée qui va contenir une instance du repository
-// exemple: private Repository $Repository;
+  private EquipementsRepository $equipementsRepository;
+  private InformationRepository $informationRepository;
+  private LogementEquipementRepository $logementEquipementRepository;
+  private LogementRepository $logementRepository;
+  private MediaRepository $mediaRepository;
+  private ReservationsRepository $reservationsRepository;
+  private TypeLogementRepository $typeLogementRepository;
+  private UserRepository $userRepository;
 
+  public function getEquipementsRepository(): EquipementsRepository
+  {
+    return $this->equipementsRepository;
+  }
 
-  //on crée ensuite les getter pour accéder à la propriété privée
-  //exemple: public function getRepository(): Repository
-  //{
-  //  return $this->Repository;
-  //}
+  public function getInformationRepository(): InformationRepository
+  {
+    return $this->informationRepository;
+  }
 
-  //enfin, on declare un construct qui va instancier les repositories
+  public function getLogementEquipementRepository(): LogementEquipementRepository
+  {
+    return $this->logementEquipementRepository;
+  }
+
+  public function getLogementRepository(): LogementRepository
+  {
+    return $this->logementRepository;
+  }
+
+  public function getMediaRepository(): MediaRepository
+  {
+    return $this->mediaRepository;
+  }
+
+  public function getReservationsRepository(): ReservationsRepository
+  {
+    return $this->reservationsRepository;
+  }
+
+  public function getTypeLogementRepository(): TypeLogementRepository
+  {
+    return $this->typeLogementRepository;
+  }
+
+  public function getUserRepository(): UserRepository
+  {
+    return $this->userRepository;
+  }
+
   protected function __construct()
   {
     $config = App::getApp();
-    //on instancie le repository
-    //exemple: $this->Repository = new Repository($config);
+
+    $this->equipementsRepository = new EquipementsRepository($config);
+    $this->informationRepository = new InformationRepository($config);
+    $this->logementEquipementRepository = new LogementEquipementRepository($config);
+    $this->logementRepository = new LogementRepository($config);
+    $this->mediaRepository = new MediaRepository($config);
+    $this->reservationsRepository = new ReservationsRepository($config);
+    $this->typeLogementRepository = new TypeLogementRepository($config);
+    $this->userRepository = new UserRepository($config);
   }
 }

@@ -11,6 +11,6 @@ services:
   database:
     portforward: 3307
     creds:
-      user: admin
+      user: admin   
       password: admin
       database: appli-vierge
