@@ -4,10 +4,10 @@ namespace App\Repository;
 
 use Core\Repository\Repository;
 
-class AddressRepository extends Repository
+class InformationRepository extends Repository
 {
   public function getTableName(): string
   {
-    return "address";
+    return "informations";
   }
 }

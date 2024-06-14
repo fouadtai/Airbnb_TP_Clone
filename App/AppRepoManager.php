@@ -31,7 +31,7 @@ class AppRepoManager
     return $this->equipementsRepository;
   }
 
-  public function getInformationRepository(): InformationRepository
+  public function getAddressRepository(): InformationRepository
   {
     return $this->informationRepository;
   }

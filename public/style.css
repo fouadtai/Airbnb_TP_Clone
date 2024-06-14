@@ -10,6 +10,8 @@ a {
   color: black;
 }
 
-ul, ol, li {
+ul,
+ol,
+li {
   list-style: none;
 }
