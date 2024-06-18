@@ -1,6 +1,6 @@
 <?php if ($auth::isAuth()) $auth::redirect('/') ?>
 <main class="container-form">
-    <h1>Je me connecte</h1>
+    <h1>Connexion</h1>
     <!-- affichage des erreurs s'il y en a -->
     <?php if ($form_result && $form_result->hasErrors()) : ?>
         <div class="alert alert-danger" role="alert">

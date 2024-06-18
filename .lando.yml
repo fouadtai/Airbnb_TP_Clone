@@ -13,4 +13,4 @@ services:
     creds:
       user: admin   
       password: admin
-      database: airbnb
+      database: appli-vierge

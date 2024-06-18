@@ -2,15 +2,16 @@
 
 namespace App;
 
+use App\Repository\UserRepository;
+use App\Repository\MediaRepository;
+use App\Repository\LogementRepository;
+use App\Repository\LogementsRepository;
 use App\Repository\EquipementsRepository;
 use App\Repository\InformationRepository;
-use App\Repository\LogementEquipementRepository;
-use App\Repository\LogementRepository;
-use App\Repository\MediaRepository;
 use App\Repository\ReservationsRepository;
 use App\Repository\TypeLogementRepository;
-use App\Repository\UserRepository;
 use Core\Repository\RepositoryManagerTrait;
+use App\Repository\LogementEquipementRepository;
 
 class AppRepoManager
 {
@@ -20,7 +21,7 @@ class AppRepoManager
   private EquipementsRepository $equipementsRepository;
   private InformationRepository $informationRepository;
   private LogementEquipementRepository $logementEquipementRepository;
-  private LogementRepository $logementRepository;
+  private LogementsRepository $logementRepository;
   private MediaRepository $mediaRepository;
   private ReservationsRepository $reservationsRepository;
   private TypeLogementRepository $typeLogementRepository;
@@ -41,7 +42,7 @@ class AppRepoManager
     return $this->logementEquipementRepository;
   }
 
-  public function getLogementRepository(): LogementRepository
+  public function getLogementsRepository(): LogementsRepository
   {
     return $this->logementRepository;
   }
@@ -73,7 +74,7 @@ class AppRepoManager
     $this->equipementsRepository = new EquipementsRepository($config);
     $this->informationRepository = new InformationRepository($config);
     $this->logementEquipementRepository = new LogementEquipementRepository($config);
-    $this->logementRepository = new LogementRepository($config);
+    $this->logementRepository = new LogementsRepository($config);
     $this->mediaRepository = new MediaRepository($config);
     $this->reservationsRepository = new ReservationsRepository($config);
     $this->typeLogementRepository = new TypeLogementRepository($config);

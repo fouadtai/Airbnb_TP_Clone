@@ -1,6 +1,19 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style_homepage.css">
+    <!-- Autres balises meta, liens et scripts nécessaires -->
+</head>
+
+
+
 <?php if ($auth::isAuth()) $auth::redirect('/') ?>
 <main class="container-form">
-    <h1>Je crée mon compte</h1>
+    <h1>Inscription</h1>
     <!-- affichage des erreurs s'il y en a -->
     <?php if ($form_result && $form_result->hasErrors()) : ?>
         <div class="alert alert-danger" role="alert">
