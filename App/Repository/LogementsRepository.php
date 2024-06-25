@@ -13,7 +13,7 @@ class LogementsRepository extends Repository
 
   public function getTableName(): string
   {
-    return 'logements';
+    return 'logement';
   }
 
   public function getAllLogements(): array
@@ -21,10 +21,10 @@ class LogementsRepository extends Repository
     $array_result = [];
 
     $q = sprintf(
-      'SELECT l.`id`, l.`title`, l.`price_per_night`, l.`address` 
+      'SELECT l.`id`, l.`title`, l.`price_per_night`, l.`address`, l.`image_path`
             FROM %1$s AS l
             INNER JOIN %2$s AS u ON l.`user_id` = u.`id` 
-            WHERE u.`is_admin` = 1 ',
+            WHERE u.`is_active` = 1 ',
       $this->getTableName(),
       AppRepoManager::getRm()->getUserRepository()->getTableName()
     );
@@ -32,7 +32,7 @@ class LogementsRepository extends Repository
     $stmt = $this->pdo->query($q);
     if (!$stmt) return $array_result;
 
-    while ($row_data = $stmt->fetch(PDO::FETCH_ASSOC)) {
+    while ($row_data = $stmt->fetch()) {
       $array_result[] = new Logement($row_data);
     }
 

@@ -5,6 +5,7 @@ namespace App;
 use MiladRahimi\PhpRouter\Router;
 use App\Controller\AuthController;
 use App\Controller\HomeController;
+use App\Controller\UserController;
 use App\Controller\PizzaController;
 use App\Controller\LogementController;
 use App\Controller\LogementsController;
@@ -66,6 +67,8 @@ class App implements DatabaseConfigInterface
     $this->router->get('/inscription', [AuthController::class, 'registerForm']);
     $this->router->get('/logout', [AuthController::class, 'logout']);
     $this->router->post('/register', [AuthController::class, 'register']);
+
+
 
     // PARTIE Logements:
     $this->router->get('/', [LogementController::class, 'home']);

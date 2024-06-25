@@ -76,7 +76,7 @@ class AuthController extends Controller
         $user->password = '';
         Session::set(Session::USER, $user);
         Session::remove(Session::FORM_RESULT);
-        self::redirect('/dashboard'); // Redirection vers la page souhaitée après inscription
+        self::redirect('/mon-compte'); // Redirection vers la page de compte après inscription
     }
 
     public function login(ServerRequest $request)
@@ -105,7 +105,7 @@ class AuthController extends Controller
         $user->password = '';
         Session::set(Session::USER, $user);
         Session::remove(Session::FORM_RESULT);
-        self::redirect('/dashboard'); // Redirection vers la page souhaitée après connexion
+        self::redirect('/mon-compte'); // Redirection vers la page de compte après connexion
     }
 
     public function validEmail(string $email): bool

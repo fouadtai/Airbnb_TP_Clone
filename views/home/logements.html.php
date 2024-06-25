@@ -1,6 +1,5 @@
-<!-- home/logements.php -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -9,10 +8,11 @@
 </head>
 
 <body>
-    <h1><?= $view_data['h1'] ?></h1>
-    <?php if (!empty($view_data['logements'])) : ?>
+    <?php include '_navbar.html.php'; ?>
+    <h1><?= $h1 ?></h1>
+    <?php if (!empty($logements)) : ?>
         <ul>
-            <?php foreach ($view_data['logements'] as $logement) : ?>
+            <?php foreach ($logements as $logement) : ?>
                 <li><?= $logement->title ?> - <?= $logement->price_per_night ?>€/nuit</li>
             <?php endforeach; ?>
         </ul>

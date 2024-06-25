@@ -1,4 +1,3 @@
-<!-- home/home.php -->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,8 +8,17 @@
 </head>
 
 <body>
-    <h1>Home Page</h1>
-    <p>Welcome to the home page.</p>
+
+    <h1><?= isset($h1) ? $h1 : 'Titre par défaut' ?></h1>
+    <?php if (!empty($logements)) : ?>
+        <ul>
+            <?php foreach ($logements as $logement) : ?>
+                <li><?= $logement->title ?> - <?= $logement->price_per_night ?>€/nuit</li>
+            <?php endforeach; ?>
+        </ul>
+    <?php else : ?>
+        <p>Aucun logement trouvé.</p>
+    <?php endif; ?>
 </body>
 
 </html>

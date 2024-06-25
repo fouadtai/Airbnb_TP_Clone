@@ -2,9 +2,15 @@
 
 namespace App\Controller;
 
-use App\AppRepoManager;
-use Core\Controller\Controller;
 use Core\View\View;
+use App\AppRepoManager;
+use Core\Form\FormResult;
+use Core\Session\Session;
+use Core\Controller\Controller;
+use Core\Form\FormError;
+use Core\Form\FormSuccess;
+use Laminas\Diactoros\ServerRequest;
+
 
 class LogementController extends Controller
 {
@@ -16,10 +22,12 @@ class LogementController extends Controller
 
     public function getLogements(): void
     {
-        $logements = AppRepoManager::getRm()->getLogementsRepository()->getAllLogements();
+
         $view_data = [
             'h1' => 'Nos logements',
-            'logements' => $logements
+            $logements = AppRepoManager::getRm()->getLogementsRepository()->getAllLogements(),
+            'form_success' => Session::get(Session::FORM_SUCCESS),
+            'form_result' => Session::get(Session::FORM_RESULT),
         ];
 
         $view = new View('home/logements');
