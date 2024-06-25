@@ -69,7 +69,7 @@ class App implements DatabaseConfigInterface
 
     // PARTIE Logements:
     $this->router->get('/', [LogementController::class, 'home']);
-    $this->router->get('/logement', [LogementController::class, 'getLogements']);
+    $this->router->get('/logements', [LogementController::class, 'getLogements']);
     $this->router->get('/logement/{id}', [LogementController::class, 'getLogementsbyId']);
   }
 

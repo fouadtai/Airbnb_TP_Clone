@@ -8,27 +8,17 @@ use Core\View\View;
 
 class LogementController extends Controller
 {
-
-
-    /**
-     * méthode qui renvoie la vue de la page d'accueil
-     * @return void
-     */
     public function home()
     {
-        //preparation des données à transmettre à la vue
-
-
         $view = new View('home/home');
         $view->render();
     }
-
 
     public function getLogements(): void
     {
         $logements = AppRepoManager::getRm()->getLogementsRepository()->getAllLogements();
         $view_data = [
-            'h1' => 'Our Properties',
+            'h1' => 'Nos logements',
             'logements' => $logements
         ];
 

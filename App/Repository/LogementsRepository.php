@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use PDO;
+use App\AppRepoManager;
 use App\Model\Logement;
 use Core\Repository\Repository;
 
@@ -15,35 +16,24 @@ class LogementsRepository extends Repository
     return 'logements';
   }
 
-
-
   public function getAllLogements(): array
   {
     $array_result = [];
 
-    $q = "
-            SELECT 
-                l.title, 
-                l.price_per_night, 
-                t.label AS type
-            FROM 
-                logements l
-            JOIN 
-                type t ON l.type_id = t.id
-            WHERE 
-                l.is_active = 1
-        ";
+    $q = sprintf(
+      'SELECT l.`id`, l.`title`, l.`price_per_night`, l.`address` 
+            FROM %1$s AS l
+            INNER JOIN %2$s AS u ON l.`user_id` = u.`id` 
+            WHERE u.`is_admin` = 1 ',
+      $this->getTableName(),
+      AppRepoManager::getRm()->getUserRepository()->getTableName()
+    );
 
-    $stmt = $this->db->query($q);
-
-    if (!$stmt) {
-      error_log('Query failed: ' . $this->db->errorInfo()[2]);
-      return $array_result;
-    }
+    $stmt = $this->pdo->query($q);
+    if (!$stmt) return $array_result;
 
     while ($row_data = $stmt->fetch(PDO::FETCH_ASSOC)) {
-      error_log('Fetched logement: ' . print_r($row_data, true));
-      $array_result[] = $row_data; // Assuming $row_data is an associative array
+      $array_result[] = new Logement($row_data);
     }
 
     return $array_result;

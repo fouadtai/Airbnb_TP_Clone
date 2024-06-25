@@ -20,7 +20,6 @@ class UserRepository extends Repository
   {
     //on crée un tableau pour que le client ne soit pas admin et soit actif
     $data_more = [
-      'is_admin' => 0,
       'is_active' => 1
     ];
     //on fusionne les 2 tableaux
@@ -28,8 +27,8 @@ class UserRepository extends Repository
 
     //on crée la requete SQL
     $query = sprintf(
-      'INSERT INTO %s (`email`, `password`, `firstname`, `lastname`, `phone`, `is_admin`, `is_active`) 
-      VALUES (:email, :password, :firstname, :lastname, :phone,  :is_admin, :is_active)',
+      'INSERT INTO %s (`email`, `password`, `firstname`, `lastname`, `phone`, `is_active`) 
+      VALUES (:email, :password, :firstname, :lastname, :phone,  :is_active)',
       $this->getTableName()
     );
     //on prépare la requete

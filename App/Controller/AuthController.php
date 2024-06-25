@@ -13,10 +13,6 @@ use Laminas\Diactoros\ServerRequest;
 
 class AuthController extends Controller
 {
-    /**
-     * méthode qui renvoie la vue du formulaire de connexion
-     * @return void
-     */
     public function loginForm()
     {
         $view = new View('auth/login');
@@ -26,10 +22,7 @@ class AuthController extends Controller
 
         $view->render($view_data);
     }
-    /**
-     * méthode qui renvoie la vue du formulaire d'enregistrement
-     * @return void
-     */
+
     public function registerForm()
     {
         $view = new View('auth/register');
@@ -40,19 +33,12 @@ class AuthController extends Controller
         $view->render($view_data);
     }
 
-    /**
-     * méthode qui permet de traiter le formulaire d'enregistrement
-     */
     public function register(ServerRequest $request)
     {
-        //on receptionne les données du formulaire
         $data_form = $request->getParsedBody();
-        //on instancie formResult pour stocker les messages d'erreurs
         $form_result = new FormResult();
-        //on doit crée une instance de User
         $user = new User();
 
-        //on s'occupe de toute les vérifications
         if (
             empty($data_form['email']) ||
             empty($data_form['password']) ||
@@ -86,83 +72,58 @@ class AuthController extends Controller
             Session::set(Session::FORM_RESULT, $form_result);
             self::redirect('/inscription');
         }
+
         $user->password = '';
         Session::set(Session::USER, $user);
         Session::remove(Session::FORM_RESULT);
-        self::redirect('/');
+        self::redirect('/dashboard'); // Redirection vers la page souhaitée après inscription
     }
 
-    /**
-     * méthode qui permet de traiter le formulaire de connexion
-     */
     public function login(ServerRequest $request)
     {
-        //on receptionne les données du formulaire
         $data_form = $request->getParsedBody();
-        //on instancie formResult pour stocker les messages d'erreurs
         $form_result = new FormResult();
-        //on doit crée une instance de User
         $user = new User();
 
-        //on s'occupe de toute les vérifications
         if (empty($data_form['email']) || empty($data_form['password'])) {
             $form_result->addError(new FormError('Veuillez remplir tous les champs'));
         } elseif (!$this->validEmail($data_form['email'])) {
             $form_result->addError(new FormError('L\'email n\'est pas valide'));
         } else {
             $email = strtolower($this->validInput($data_form['email']));
-            //on vérifie qu'on a bien un utilisateur avec cet email
             $user = AppRepoManager::getRm()->getUserRepository()->findUserByEmail($email);
             if (is_null($user) || !password_verify($this->validInput($data_form['password']), $user->password)) {
                 $form_result->addError(new FormError('Email ou mot de passe incorrect'));
             }
         }
+
         if ($form_result->hasErrors()) {
             Session::set(Session::FORM_RESULT, $form_result);
             self::redirect('/connexion');
         }
+
         $user->password = '';
         Session::set(Session::USER, $user);
         Session::remove(Session::FORM_RESULT);
-        self::redirect('/');
+        self::redirect('/dashboard'); // Redirection vers la page souhaitée après connexion
     }
 
-    /**
-     * méthode qui vérifie que l'email est du bon format
-     * @param string $email
-     * @return bool
-     */
     public function validEmail(string $email): bool
     {
         return filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
-    /**
-     * méthode qui vérifie que le mot de passe contient 1 majuscule, 1 minuscule, 1 chiffre et au moins 8 caractères
-     * @param string $password
-     * @return bool
-     */
     public function validPassword(string $password): bool
     {
         return preg_match('/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/', $password);
     }
 
-    /**
-     * méthode qui vérifie si l'utilisateur existe
-     * @param string $email
-     * @return bool
-     */
     public function userExist(string $email): bool
     {
         $user = AppRepoManager::getRm()->getUserRepository()->findUserByEmail($email);
         return !is_null($user);
     }
 
-    /**
-     * méthode qui sécurise les données
-     * @param string $data
-     * @return string
-     */
     public function validInput(string $data): string
     {
         $data = trim($data);
@@ -172,24 +133,14 @@ class AuthController extends Controller
         return $data;
     }
 
-    /**
-     * méthode qui vérifie si un utilisateur est en session
-     * @return bool
-     */
     public static function isAuth(): bool
     {
         return !is_null(Session::get(Session::USER));
     }
 
-    /**
-     * méthode qui déconnecte un utilisateur
-     * @return void
-     */
     public function logout(): void
     {
-        //on va détruire la session
         Session::remove(Session::USER);
-        //on redirige sur la page d'accueil
         self::redirect('/');
     }
 }

@@ -24,7 +24,14 @@
         <li><a href="#">Découvrir</a></li>
         <li><a href="#">Devenir hôte</a></li>
         <li><a href="#">Offrir une expérience</a></li>
-        <li><a href="/connexion">Se connecter</a></li>
+        <?php if (\App\Controller\AuthController::isAuth()) : ?>
+          <form action="/logout" method="get" style="display:inline;">
+            <button type="submit">Se déconnecter</button>
+          </form>
+        <?php else : ?>
+          <li><a href="/connexion">Se connecter</a></li>
+        <?php endif; ?>
+
       </ul>
     </div>
   </nav>
