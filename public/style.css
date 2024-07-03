@@ -1,4 +1,4 @@
-/* reset css */
+/* Global Styles */
 * {
   margin: 0;
   padding: 0;
@@ -6,500 +6,256 @@
 }
 
 body {
+  font-family: 'Circular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #484848;
+  background-color: #f7f7f7;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
+/* Links */
 a {
   text-decoration: none;
-  color: black;
+  color: #FF5A5F;
+  transition: color 0.3s;
 }
 
+a:hover {
+  color: #FF385C;
+}
+
+/* Lists */
 ul,
 ol,
 li {
   list-style: none;
-  padding: 0px;
-  margin-bottom: 0;
+  padding: 0;
 }
 
-.logo {
-  width: 155px;
-  margin: 40px 20px;
+/* Containers */
+.container,
+.container-fluid {
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-.navbar {
-  margin: 40px 20px;
-}
-
-.main-container {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-/* Header styling */
-header {
-  background-color: #fdfeff;
-  padding: 10px 0;
-}
-
-/* Navigation container styling */
-.d-flex.justify-content-around {
+.container {
   max-width: 1200px;
-  margin: 0 auto;
-  justify-content: space-between !important;
 }
 
-/* Logo styling */
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.navbar-brand {
+  font-weight: bold;
+  color: #FF5A5F;
+  font-size: 1.5rem;
+}
+
 .nav-logo img.logo {
-  height: 50px;
-  margin: 40px 10px 40px 20px;
+  height: 40px;
+  /* Adjusted from 50px to 40px */
+  margin: 10px 20px;
+  /* Adjusted margins to better fit within the navbar */
 }
 
-/* Navigation menu styling */
-.navbar ul {
-  list-style: none;
+.navbar-nav {
+  margin-left: auto;
   display: flex;
   align-items: center;
 }
 
-/* Menu items styling */
-.navbar ul li {
-  margin: 0 20px;
+.nav-link {
+  color: #484848;
+  font-size: 1rem;
+  margin-left: 1rem;
 }
 
-/* Links styling */
-.navbar ul li a {
-  color: #f5385c;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s;
-  padding: 12px;
+.nav-link:hover {
+  color: #FF5A5F;
 }
 
-/* Hover effect for links */
-.navbar ul li a:hover {
-  color: #f5385c;
-  border: 2px solid #f5385c;
-  border-radius: 5px;
+/* Header */
+header {
+  background-color: #fff;
+  padding: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
-/* Custom link styling */
-.custom-link {
-  display: flex;
-  align-items: center;
-  color: #f5385c;
-  border: 1px solid transparent;
-}
-
-/* Icon styling */
-.custom-svg {
-  margin-left: 5px;
-  font-size: 18px;
-}
-
-/* Profile menu styling */
-nav ul {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-/* Profile menu items styling */
-nav ul li {
-  margin: 0 20px;
-}
-
-/* Profile menu links styling */
-nav ul li a {
-  color: #f5385c;
-  text-decoration: none;
-  font-size: 18px;
-  transition: color 0.3s;
-}
-
-/* Dropdown menu styling */
-.dropdown-menu {
-  background-color: #000000;
-  border: none;
-}
-
-/* Dropdown menu items styling */
-.dropdown-menu .dropdown-item {
-  color: #f5385c;
-  transition: background-color 0.3s;
-}
-
-/* Hover effect for dropdown menu items */
-.dropdown-menu .dropdown-item:hover {
-  background-color: #fdf8f9;
-}
-
-/* Profile menu styling */
-.profile-menu {
-  list-style: none;
-  display: flex;
-  align-items: center;
-}
-
-/* Profile menu items styling */
-.profile-menu li {
-  margin: 0 20px;
-}
-
-/* Profile menu links styling */
-.profile-menu li a {
-  color: #f5385c;
-  font-size: 18px;
-  padding: 12px;
-  text-decoration: none;
-  transition: color 0.3s;
-  border: 1px solid transparent;
-}
-
-/* Hover effect for profile menu links */
-.profile-menu li a:hover {
-  
-  border-radius: 5px;
-  color: #f5385c;
-  border: 2px solid #f5385c;
-}
-
-.dropdown-divider {
-  background-color: white;
+/* Footer */
+footer {
+  background-color: #343a40;
+  color: #fff;
+  text-align: center;
+  padding: 1.5rem 0;
 }
 
 /* Index Page */
-.sous-titre {
-  font-size: 20px;
-}
-
-.accueil {
-  margin: 50px auto; /* Centre horizontalement et ajoute une marge en haut et en bas */
-  padding: 20px;
-  text-align: center;
-}
-.accueil .titre-principal {
+h1 {
+  color: #484848;
   font-size: 2.5rem;
   font-weight: bold;
-  color: #343a40;
-}
-.accueil p {
-  margin-bottom: 30px;
-}
-.card img {
-  height: 300px;
-  object-fit: cover;
-}
-.available {
-  margin: 50px 0 30px 60px;
-  text-decoration: underline;
+  margin-bottom: 1rem;
 }
 
-.img {
-  border-radius: 30px;
-  width: 400px !important;
-  height: 400px !important;
-  object-fit: cover !important;
-}
-
-/* CARDS */
-
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-/* Card styling */
 .card {
-  margin-bottom: 20px; /* Espacement entre les cartes */
   border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 2rem;
+  transition: transform 0.2s;
 }
 
-/* Card image styling */
+.card:hover {
+  transform: translateY(-10px);
+}
+
 .card-img-top {
-  width: 290px;
-  height: 290px;
-  display: block;
-  border-radius: 30px;
+  width: 100%;
+  height: 200px;
   object-fit: cover;
 }
 
-/* Card body styling */
 .card-body {
-  padding: 0px !important;
-  flex-grow: 1; /* Pour que le corps de la carte prenne toute la hauteur disponible */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Répartit le contenu verticalement */
-  align-items: center;
+  padding: 1rem;
 }
 
-.card-reservation {
-  background-color: #f5385c;
-  box-shadow: #a8a8a8 0px 5px 15px;
-  border-radius: 10px;
-}
-
-/* Card title styling */
 .card-title {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.25rem;
+  color: #484848;
 }
 
-/* Card text styling */
 .card-text {
-  margin-bottom: 15px;
+  color: #767676;
+  margin-bottom: 1rem;
 }
 
-/* Price styling */
 .price {
   font-weight: bold;
+  color: #FF5A5F;
 }
 
-/* Button styling */
-.btn {
-  text-align: center;
-  padding: 10px 10px;
-  margin: 0 auto;
-  background-color: #f5385c;
-  color: #fff;
-  text-decoration: none;
+.btn-primary {
+  background-color: #FF5A5F;
   border: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-  opacity: 0.9;
-  border: 1px solid transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
 }
 
-.btn-reserver {
-  width: 20%;
-  background-color: #f5385c;
-
-  margin-top: 20px;
+.btn-primary:hover {
+  background-color: #FF385C;
+  color: #fff;
 }
 
-.btn:hover {
-  background-color: #f9fcff;
-  color: #f5385c;
-  font-weight: bold;
-  border: 1px solid #f5385c;
-}
-
-/* DETAIL DES LOGEMENTS */
-
+/* Detail Page */
 .container-detail {
-  margin: 0 100px;
-}
-
-.card-detail {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
 }
 
 .img-detail {
-  width: 50%;
-  height: auto;
-  object-fit: cover;
-  margin: 80px 0 100px 80px;
-}
-
-.infos-equipements {
-  display: flex;
-  flex-direction: row;
   width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 1rem;
 }
 
 .reserver {
-  width: 200px;
-  text-align: center;
-  padding: 10px 0;
-  background-color: #03da23;
+  background-color: #FF5A5F;
   color: #fff;
-  text-decoration: none;
-  border-radius: 8px;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
-.card-body-detail {
-  margin: 60px 20px 0 0;
+.reserver:hover {
+  background-color: #FF385C;
 }
 
-.price {
-  display: flex;
-  align-items: center;
-  font-weight: normal;
-}
-
-.price1 {
-  font-size: 17px;
-}
-
-.formulaire {
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  padding: 30px 0px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-  border-radius: 8px;
-  background-color: #f5f2f2;
-  box-shadow: #a8a8a8 0px 0px 8px;
-}
-
-/* PAGE CONNEXION */
-
-.container-form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 60px;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.auth-form {
-  display: flex;
-  flex-direction: column;
-  padding: 25px 20px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  background-color: #f5385c;
-}
-
-.detail-description {
-  color: #fff;
-}
-
-.connexion-title {
-  font-size: 30px;
-  margin: 40px 0 40px 0px;
-}
-
+/* Forms */
 .form-control {
-  border: 1px solid #adb5bd;
-  margin: 20px 0;
-}
-
-.call-action {
-  padding: 10px;
-  background-color: #fff;
-  color: #f5385c;
-  text-decoration: none;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
-}
-
-.call-action:hover {
-  background-color:#f5385c ;
-  color:#fff;
-  font-weight: bold;
-  box-shadow: none;
-}
-
-.no-account {
-  margin-top: 20px;
-}
-
-.auth-link {
-  font-weight: bold;
-}
-
-.auth-link:hover {
-  border: 2px solid #000000;
-  border-radius: 8px;
-  color: #fff;
-  padding: 5px 10px;
-  background-color: #f5385c;
-  font-weight: normal;
-}
-
-.header-description {
-  margin-top: 20px;
-}
-
-/* PAGE MES RESERVATIONS */
-
-.title-reservation {
-  width: 50%;
-  margin: 40px auto;
-  text-align: center;
-}
-
-.card-reservation {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 10px;
-  margin: 20px 0;
-  margin-left: 40px;
-}
-
-/* FOOTER */
-
-.footer {
-  width: 100%;
-  height: 150px;
-  background-color: #020202;
-}
-
-/* MES LOGEMENTS */
-
-.card-logements {
-  border: 2px solid #000000;
-  border-radius: 8px;
-  display: flex;
-  flex-wrap: wrap;
-  margin: 50px;
-  gap: 20px;
-}
-
-.each-logement {
-  height: auto;
-
-  border: 2px solid rgb(98, 169, 190);
-  border-radius: 8px;
-  margin: 20px;
-}
-
-/* PAGE ADD LOGEMENT */
-
-.type-logement {
-  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #eaeaea;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .btn-send {
-  margin: 20px;
-  display: flex;
-  justify-content: center;
+  background-color: #FF5A5F;
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: background-color 0.3s;
 }
 
-.add-photos {
-  margin: 50px 0;
+.btn-send:hover {
+  background-color: #FF385C;
 }
 
-.img-reservation{
-  display: flex;
-  flex-wrap: wrap;
-  margin: 50px;
-  gap: 20px;
+/* Page-specific Styles */
+.auth-form,
+.form-container,
+.formulaire {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+.auth-form {
+  border: 2px solid #FF5A5F;
+}
 
-.table{
+.auth-form .form-control {
+  margin-bottom: 1rem;
+}
 
- padding: 20px;
- 
+.call-action {
+  background-color: #FF5A5F;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-align: center;
+  display: block;
+  margin-top: 1rem;
+}
+
+.call-action:hover {
+  background-color: #FF385C;
+  color: #fff;
+}
+
+.no-account {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+/* Utility classes */
+.mt-5 {
+  margin-top: 3rem;
+}
+
+.mb-4 {
+  margin-bottom: 1.5rem;
+}
+
+.text-center {
+  text-align: center;
 }

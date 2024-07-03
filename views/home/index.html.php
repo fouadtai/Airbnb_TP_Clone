@@ -2,12 +2,12 @@
   <div class="accueil">
     <p>
     <h1 class="titre-principal">
-      Bienvenue sur le site de <strong>Airbnb</strong>
+      Bienvenue sur <strong>Rbnb</strong>
     </h1>
     </p>
     <p class="sous-titre">
 
-      Location de vacances, Cabanes, <br>Maisons de campagnes et bien d'autres
+      Logements uniques, endroits magnifique <br> venez reservés vos magnifiques logements
 
   </div>
 
@@ -23,9 +23,9 @@
           </a>
           <div class="card-body align-items-center">
             <div>
-            <h5 class="card-title"> <?= $logement->title ?> </h5>
-            <p class="card-text"> <?= $logement->price_per_night ?> € / nuit</p>
-          </div>
+              <h5 class="card-title"> <?= $logement->title ?> </h5>
+              <p class="card-text"> <?= $logement->price_per_night ?> € / nuit</p>
+            </div>
             <a href="/logement_detail/<?= $logement->id ?>" class="btn ">Voir les détails</a>
           </div>
         </div>
