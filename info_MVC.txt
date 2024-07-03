@@ -46,7 +46,7 @@ N.B : Il est tout à fait possible d'appeler une méthode d'un repository direct
 Google est votre meilleur ami, le support de cours aussi :) 
 ATTENTION à ChatGPT et autre copilot, il peut parfois vous inventer une vie car le moteur a été fait à la main par nos soins
 
-Soyez organiser et attentif aux fautes de syntaxes et essayez toujours de finir une tache que vous avez commencer
-car ca peut vite devenir une usine à gaz si plain de chose sont commencé et rien de fini 
+Soyez organisés et attentifs aux fautes de syntaxes et essayez toujours de finir une tâche que vous avez commencé
+car ça peut vite devenir une usine à gaz si plein de choses sont commencées et rien de fini 
 
 GOOD LUCK ;) 

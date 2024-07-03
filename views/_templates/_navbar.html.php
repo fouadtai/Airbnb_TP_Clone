@@ -1,54 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Accueil - Airbnb</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="style_homepage.css">
-  <style>
-    /* Styles spécifiques pour la fenêtre modale et le formulaire */
-    /* Copiez et collez le CSS de la réponse précédente ici */
-  </style>
-</head>
+use App\AppRepoManager;
+use App\Model\User;
+use Core\Session\Session;
 
-<body>
-  <!-- Barre de navigation -->
-  <nav class="navbar">
-    <div class="container">
-      <a href="#" class="logo">
-        <img src="/public/assets/images/airbnb.svg" alt="Airbnb Logo">
-      </a>
-      <ul class="nav-links">
-        <li><a href="#">Découvrir</a></li>
-        <li><a href="#">Devenir hôte</a></li>
-        <li><a href="#">Offrir une expérience</a></li>
-        <?php if (\App\Controller\AuthController::isAuth()) : ?>
-          <form action="/logout" method="get" style="display:inline;">
-            <button type="submit">Se déconnecter</button>
-          </form>
-        <?php else : ?>
-          <li><a href="/connexion">Se connecter</a></li>
-        <?php endif; ?>
+// $user = AppRepoManager::getRm()->getUserRepository()->readById(User::class, Session::get(Session::USER)->id);
+?>
+<div class="d-flex justify-content-around align-items-center">
+  <!-- logo -->
+  <div class="nav-logo">
+    <a href="/">
+      <img class="logo" src="../assets/images/logo_airbnb.svg" alt="logo application Airbnb">
+    </a>
+  </div>
+
+  <!--  barre de navigation -->
+  <div>
+    <nav class="navbar">
+      <ul class="d-flex justify-content-center">
+        <li><a class="fw-bold" href="/">Accueil</a></li>
 
       </ul>
-    </div>
-  </nav>
+    </nav>
+  </div>
+  <!-- menu du profil -->
+  <div>
+    <nav>
+      <ul class="profile-menu">
+        <li>
+          <!-- si je suis en session j'affiche mon compte -->
+          <?php if ($auth::isAuth()) : ?>
+            <div class="dropdown custom-link">
+              <a class="dropdown-toggle profile-menu fw-bold" href="" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                Mon compte <i class="bi bi-person custom-svg"> </i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <li><a class="dropdown-item custom-link">Bonjour : <?= Session::get(Session::USER)->firstname ?></a></li>
+                <li><a class="dropdown-item custom-link" href="#">Mon profil</a></li>
+                <li><a class="dropdown-item custom-link" href="/mes_reservations/<?= Session::get(Session::USER)->id ?> ">Mes réservations</a></li>
 
-  <!-- Section principale -->
-  <section class="hero">
-    <div class="container">
-      <h1>Louez des logements uniques sur Airbnb</h1>
-      <p>Découvrez des locations de vacances qui vous donnent accès à une maison complète.</p>
-      <a href="/inscription" class="btn-primary" id="openModalBtn">Commencer</a>
-    </div>
-  </section>
+                <li><a class="dropdown-item custom-link" href="/mes_logements/<?= Session::get(Session::USER)->id ?> ">Mes logements en location</a></li>
+                <li><a class="dropdown-item custom-link" href="/add_logement">Louer mon bien</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item custom-link" href="/logout">Déconnexion</a></li>
+              </ul>
+            </div>
+          <?php else : ?>
+            <a href="/connexion">Se connecter
+              <i class="bi bi-person custom-svg"></i>
+            </a>
+          <?php endif ?>
+        </li>
+      </ul>
+
+    </nav>
+  </div>
 
 
-
-
-
-</body>
-
-</html>
+</div>
+<hr>

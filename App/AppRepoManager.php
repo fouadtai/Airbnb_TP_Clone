@@ -2,82 +2,97 @@
 
 namespace App;
 
-use App\Repository\UserRepository;
-use App\Repository\MediaRepository;
-use App\Repository\LogementRepository;
-use App\Repository\LogementsRepository;
-use App\Repository\EquipementsRepository;
-use App\Repository\InformationRepository;
-use App\Repository\ReservationsRepository;
-use App\Repository\TypeLogementRepository;
 use Core\Repository\RepositoryManagerTrait;
+use App\Repository\AdressRepository;
+use App\Repository\EquipementRepository;
+use App\Repository\FavorisRepository;
 use App\Repository\LogementEquipementRepository;
+use App\Repository\LogementRepository;
+use App\Repository\MediaRepository;
+use App\Repository\ReservationRepository;
+use App\Repository\TypeLogementRepository;
+use App\Repository\UserRepository;
 
 class AppRepoManager
 {
-  //on récupère le trait RepositoryManagerTrait
-  use RepositoryManagerTrait;
+    // Utilisation du trait RepositoryManagerTrait pour simplifier la gestion des repositories
+    use RepositoryManagerTrait;
 
-  private EquipementsRepository $equipementsRepository;
-  private InformationRepository $informationRepository;
-  private LogementEquipementRepository $logementEquipementRepository;
-  private LogementsRepository $logementRepository;
-  private MediaRepository $mediaRepository;
-  private ReservationsRepository $reservationsRepository;
-  private TypeLogementRepository $typeLogementRepository;
-  private UserRepository $userRepository;
+    // Déclaration des propriétés privées pour chaque repository
+    private AdressRepository $adressRepository;
+    private EquipementRepository $equipementRepository;
+    private FavorisRepository $favorisRepository;
+    private LogementEquipementRepository $logementEquipementRepository;
+    private LogementRepository $logementRepository;
+    private MediaRepository $mediaRepository;
+    private ReservationRepository $reservationRepository;
+    private TypeLogementRepository $typeLogementRepository;
+    private UserRepository $userRepository;
 
-  public function getEquipementsRepository(): EquipementsRepository
-  {
-    return $this->equipementsRepository;
-  }
+    // Constructeur pour initialiser les repositories avec la configuration de l'application
+    protected function __construct()
+    {
+        // Récupération de la configuration de l'application
+        $config = App::getApp();
 
-  public function getAddressRepository(): InformationRepository
-  {
-    return $this->informationRepository;
-  }
+        // Initialisation de chaque repository avec la configuration
+        $this->adressRepository = new AdressRepository($config);
+        $this->equipementRepository = new EquipementRepository($config);
+        $this->favorisRepository = new FavorisRepository($config);
+        $this->logementEquipementRepository = new LogementEquipementRepository($config);
+        $this->logementRepository = new LogementRepository($config);
+        $this->mediaRepository = new MediaRepository($config);
+        $this->reservationRepository = new ReservationRepository($config);
+        $this->typeLogementRepository = new TypeLogementRepository($config);
+        $this->userRepository = new UserRepository($config);
+    }
 
-  public function getLogementEquipementRepository(): LogementEquipementRepository
-  {
-    return $this->logementEquipementRepository;
-  }
+    // Getters pour accéder aux instances des repositories
 
-  public function getLogementsRepository(): LogementsRepository
-  {
-    return $this->logementRepository;
-  }
+    public function getAdressRepository(): AdressRepository
+    {
+        return $this->adressRepository;
+    }
 
-  public function getMediaRepository(): MediaRepository
-  {
-    return $this->mediaRepository;
-  }
+    public function getEquipementRepository(): EquipementRepository
+    {
+        return $this->equipementRepository;
+    }
 
-  public function getReservationsRepository(): ReservationsRepository
-  {
-    return $this->reservationsRepository;
-  }
+    public function getFavorisRepository(): FavorisRepository
+    {
+        return $this->favorisRepository;
+    }
 
-  public function getTypeLogementRepository(): TypeLogementRepository
-  {
-    return $this->typeLogementRepository;
-  }
+    public function getLogementEquipementRepository(): LogementEquipementRepository
+    {
+        return $this->logementEquipementRepository;
+    }
 
-  public function getUserRepository(): UserRepository
-  {
-    return $this->userRepository;
-  }
+    public function getLogementRepository(): LogementRepository
+    {
+        return $this->logementRepository;
+    }
 
-  protected function __construct()
-  {
-    $config = App::getApp();
+    public function getMediaRepository(): MediaRepository
+    {
+        return $this->mediaRepository;
+    }
 
-    $this->equipementsRepository = new EquipementsRepository($config);
-    $this->informationRepository = new InformationRepository($config);
-    $this->logementEquipementRepository = new LogementEquipementRepository($config);
-    $this->logementRepository = new LogementsRepository($config);
-    $this->mediaRepository = new MediaRepository($config);
-    $this->reservationsRepository = new ReservationsRepository($config);
-    $this->typeLogementRepository = new TypeLogementRepository($config);
-    $this->userRepository = new UserRepository($config);
-  }
+    public function getReservationRepository(): ReservationRepository
+    {
+        return $this->reservationRepository;
+    }
+
+    public function getTypeLogementRepository(): TypeLogementRepository
+    {
+        return $this->typeLogementRepository;
+    }
+
+    public function getUserRepository(): UserRepository
+    {
+        return $this->userRepository;
+    }
 }
+
+?>

@@ -2,17 +2,15 @@
 
 namespace App\Model;
 
-use Core\Model\Model;
+use Core\Model\Model;  // Importe la classe Model du namespace Core\Model
 
-class Type extends Model
+// Définition de la classe TypeLogement qui représente le type de logement
+class TypeLogement extends Model
 {
-  public int $id;
-  public string $label;
-  public ?string $image_path;
-  public bool $is_active;
-
-  public function __construct(array $data = [])
-  {
-    parent::__construct($data);
-  }
+    // Propriétés publiques de la classe TypeLogement
+    public string $label;       // Libellé ou nom du type de logement
+    public string $image_path;  // Chemin de l'image représentant ce type de logement
+    public bool $is_active;     // Indicateur d'activation du type de logement (actif ou non)
 }
+
+?>
