@@ -21,11 +21,10 @@ class Reservation extends Model
 
     // Propriétés d'association pour stocker les objets associés à cette réservation
     public Logement $logement;    // Propriété utilisée pour stocker l'objet Logement associé à cette réservation.
-                                  // Elle est typée avec la classe Logement, permettant d'accéder aux détails du logement réservé. Instance de la classe Logement représentant le logement réservé
+    // Elle est typée avec la classe Logement, permettant d'accéder aux détails du logement réservé. Instance de la classe Logement représentant le logement réservé
     public User $user;            // Instance de la classe User représentant l'utilisateur effectuant la réservation
 }
 
 
 //La classe Reservation est utilisée pour représenter une réservation dans l'application. 
 //Elle permet de gérer et de manipuler les informations relatives à une réservation spécifique, y compris les dates, les nombres d'adultes/enfants, le prix total, ainsi que les associations avec un utilisateur et un logement.
-?>
