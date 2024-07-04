@@ -17,7 +17,9 @@ class Logement extends Model
     public int $nb_bath;               // Le nombre de salles de bains du logement sous forme d'entier
     public int $nb_traveler;           // Le nombre de voyageurs du logement sous forme d'entier
     public bool $is_active;            // Statut d'activation du logement sous forme de booléen
-    public int $Taille;                // La taille du logement en m² sous forme d'entier
+    public int $Taille;
+
+    // La taille du logement en m² sous forme d'entier
 
     public int $type_logement_id;      // ID du type de logement associé sous forme d'entier
     public int $user_id;               // ID de l'utilisateur propriétaire du logement sous forme d'entier
@@ -31,7 +33,4 @@ class Logement extends Model
     public array $media;              // Tableau des médias associés au logement. Cette propriété est un tableau qui stocke les médias associés au logement, tels que les images ou les vidéos.
     public array $equipements;        // Tableau des equipements associés au logement. Cette propriété est un tableau qui stocke les equipements associés au logement, tels que les machines à laver ou les chaînes à laver.
     public array $reservations;
-
 }
-
-?>
