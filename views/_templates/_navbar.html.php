@@ -44,6 +44,10 @@ use Core\Session\Session;
     color: #FF385C;
     /* Change the color here */
   }
+
+  .icon-red {
+    color: red;
+  }
 </style>
 
 <div class="d-flex justify-content-between align-items-center navbar-custom p-2">
@@ -64,24 +68,24 @@ use Core\Session\Session;
     <nav>
       <ul class="profile-menu d-flex align-items-center">
         <li class="nav-item">
-          <a class="nav-link custom-link" href="#">Devenir hôte</a>
+          <a class="nav-link custom-link" href="/add_logement">Devenir hôte</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link custom-link" href="#">
+          <a class="nav-link custom-link" href="/">
             <i class="fas fa-globe"></i>
           </a>
         </li>
         <li class="nav-item">
           <?php if ($auth::isAuth()) : ?>
             <div class="dropdown custom-link">
-              <a class="dropdown-toggle profile-menu" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bars"></i> <i class="fas fa-user-circle"></i>
+              <a class="dropdown-toggle profile-menu" href="/" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bars icon-red"></i> <i class="fas fa-user-circle icon-red"></i>
               </a>
               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item custom-link" href="#">Mon profil</a>
                 <a class="dropdown-item custom-link" href="/mes_reservations/<?= Session::get(Session::USER)->id ?> ">Mes réservations</a>
                 <a class="dropdown-item custom-link" href="/mes_logements/<?= Session::get(Session::USER)->id ?> ">Mes logements</a>
-                <a class="dropdown-item custom-link" href="/add_logement">Louer mon bien</a>
+                <a class="dropdown-item custom-link" href="/add_logement">Faire louer mon bien</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item custom-link" href="/logout">Déconnexion</a>
               </div>

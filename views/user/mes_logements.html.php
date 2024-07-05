@@ -115,5 +115,53 @@
     </div>
   </div>
 </body>
+<?php
+// Connexion à la base de données (à adapter selon votre configuration)
+$servername = "localhost";
+$username = "admin";
+$password = "admin";
+$dbname = "appli-vierge";
+
+try {
+    $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+    // Définir le mode d'erreur PDO à exception
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Récupérer les données du formulaire
+    $title = $_POST['title'];
+    $description = $_POST['description'];
+    $price_per_night = $_POST['price_per_night'];
+    $nb_room = $_POST['nb_room'];
+    $nb_bed = $_POST['nb_bed'];
+    $nb_bath = $_POST['nb_bath'];
+    $nb_traveler = $_POST['nb_traveler'];
+
+    // Préparer la requête SQL
+    $sql = "INSERT INTO logements (title, description, price_per_night, nb_room, nb_bed, nb_bath, nb_traveler)
+            VALUES (:title, :description, :price_per_night, :nb_room, :nb_bed, :nb_bath, :nb_traveler)";
+    $stmt = $conn->prepare($sql);
+
+    // Binder les paramètres
+    $stmt->bindParam(':title', $title);
+    $stmt->bindParam(':description', $description);
+    $stmt->bindParam(':price_per_night', $price_per_night);
+    $stmt->bindParam(':nb_room', $nb_room);
+    $stmt->bindParam(':nb_bed', $nb_bed);
+    $stmt->bindParam(':nb_bath', $nb_bath);
+    $stmt->bindParam(':nb_traveler', $nb_traveler);
+
+    // Exécuter la requête
+    $stmt->execute();
+
+    echo "Le logement a été ajouté avec succès.";
+
+} catch(PDOException $e) {
+    echo "Erreur : " . $e->getMessage();
+}
+
+// Fermer la connexion
+$conn = null;
+?>
+
 
 </html>
