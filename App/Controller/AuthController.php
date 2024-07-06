@@ -196,6 +196,15 @@ class AuthController extends Controller
     }
 
     /**
+     * Vérifie si l'utilisateur est admin
+     * @return bool
+     */
+    public static function isAdmin(): bool
+    {
+        return Session::get(Session::USER)->is_admin;
+    }
+
+    /**
      * Méthode qui déconnecte un utilisateur.
      * @return void
      */

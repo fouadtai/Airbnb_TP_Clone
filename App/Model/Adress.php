@@ -17,4 +17,4 @@ class Adress extends Model
     public string $country; // Le pays sous forme de chaîne de caractères
     public string $phone;   // Le numéro de téléphone sous forme de chaîne de caractères
 }
-?>
+

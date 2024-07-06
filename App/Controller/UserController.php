@@ -275,9 +275,9 @@ class UserController extends Controller
         $deleteReservation = AppRepoManager::getRm()->getReservationRepository()->deleteReservation($id);
 
         if (!$deleteReservation) {
-            $form_result->addError(new FormError('Une erreur est survenue lors de la suppression de la pizza'));
+            $form_result->addError(new FormError('Une erreur est survenue lors de la suppression du logement'));
         } else {
-            $form_result->addSuccess(new FormSuccess('Pizza désactivée avec succès'));
+            $form_result->addSuccess(new FormSuccess('Logement désactivée avec succès'));
         }
 
         // gestion des erreurs
@@ -287,7 +287,7 @@ class UserController extends Controller
             self::redirect('/mes_reservations/' . Session::get(Session::USER)->id);
         }
 
-        // si tout est OK, redirection vers la liste des pizzas
+        // si tout est OK, redirection vers la liste des logements
         // suppression de la session form_result
         if ($form_result->hasSuccess()) {
             Session::set(Session::FORM_SUCCESS, $form_result);

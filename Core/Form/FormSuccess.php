@@ -2,6 +2,7 @@
 
 namespace Core\Form;
 
+
 class FormSuccess
 {
   public function __construct(private string $message, private string $field_name = '')

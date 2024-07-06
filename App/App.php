@@ -6,6 +6,7 @@ use MiladRahimi\PhpRouter\Router;
 use App\Controller\AuthController;
 use App\Controller\HomeController;
 use App\Controller\UserController;
+use App\Controller\AdminController;
 use App\Controller\LogementController;
 use Core\Database\DatabaseConfigInterface;
 use MiladRahimi\PhpRouter\Exceptions\RouteNotFoundException;
@@ -90,6 +91,47 @@ class App implements DatabaseConfigInterface
 
     // Route qui permet à l'hôte de voir ses biens réservés
     $this->router->get('/mes_biens_reserves/{id}', [LogementController::class, 'myReservationsByHostId']);
+
+    
+ /* PARTIE BACK OFFICE */
+        //accueil back office
+        $this->router->get('/admin/home', [AdminController::class, 'home']);
+        //toutes les listes back office
+        $this->router->get('/admin/user/list', [AdminController::class, 'listUser']);
+        $this->router->get('/admin/team/list', [AdminController::class, 'listTeam']);
+        $this->router->get('/admin/pizza/list', [AdminController::class, 'listPizza']);
+        $this->router->get('/admin/ingredient/list', [AdminController::class, 'listIngredient']);
+        $this->router->get('/admin/pizza/list-offline', [AdminController::class, 'listPizzaOffline']);
+        $this->router->get('/admin/ingredient/list-offline', [AdminController::class, 'listIngredientOffline']);
+        $this->router->get('/admin/order/list/{status}', [AdminController::class, 'listOrderStatus']);
+        $this->router->post('/admin/order/update-status', [AdminController::class, 'updateStatus']);
+        //tous les update back office
+        $this->router->get('/admin/pizza/update/{id}', [AdminController::class, 'updatePizza']);
+        $this->router->post('/update-pizza-general', [AdminController::class, 'updatePizzaName']);
+        $this->router->post('/update-pizza-image', [AdminController::class, 'updatePizzaImage']);
+        $this->router->post('/update-pizza-ingredient', [AdminController::class, 'updatePizzaIngredient']);
+        $this->router->post('/update-pizza-price', [AdminController::class, 'updatePizzaPrice']);
+        $this->router->get('/admin/ingredient/update/{id}', [AdminController::class, 'updateIngredient']);
+        $this->router->post('/update-ingredient-general', [AdminController::class, 'updateIngredientName']);
+        $this->router->post('/update-ingredient-category', [AdminController::class, 'updateIngredientCategory']);
+        //toutes les suppression back office
+        $this->router->get('/admin/user/delete/{id}', [AdminController::class, 'deleteUser']);
+        $this->router->get('/admin/pizza/delete/{id}', [AdminController::class, 'deletePizza']);
+        $this->router->get('/admin/ingredient/delete/{id}', [AdminController::class, 'deleteIngredient']);
+        //toutes les réactivation back office
+        $this->router->get('/admin/pizza/activate/{id}', [AdminController::class, 'activatePizza']);
+        $this->router->get('/admin/ingredient/activate/{id}', [AdminController::class, 'activateIngredient']);
+        //tous les ajouts back office
+        $this->router->get('/admin/team/add', [AdminController::class, 'addTeam']);
+        $this->router->post('/register-team', [AuthController::class, 'registerTeam']);
+        $this->router->get('/admin/pizza/add', [AdminController::class, 'addPizza']);
+        $this->router->post('/add-pizza-form', [AdminController::class, 'addPizzaForm']);
+        $this->router->get('/admin/ingredient/add', [AdminController::class, 'addIngredient']);
+        $this->router->post('/add-ingredient-form', [AdminController::class, 'addIngredientForm']);
+        /*END BACK OFFICE */
+
+
+
   }
 
   // 3. méthode qui démarre le router.

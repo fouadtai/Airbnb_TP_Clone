@@ -39,7 +39,7 @@ CREATE TABLE `adress` (
 
 LOCK TABLES `adress` WRITE;
 /*!40000 ALTER TABLE `adress` DISABLE KEYS */;
-INSERT INTO `adress` VALUES (1,'5 rue des grillons',66500,'Perpignan','France','0601020304'),(2,'10 avenue des Champs-Élysées',75008,'Paris','France','0601020305'),(3,'15 boulevard de la Liberté',31000,'Toulouse','France','0601020306'),(4,'20 rue de la République',69002,'Lyon','France','0601020307'),(5,'25 rue Sainte-Catherine',33000,'Bordeaux','France','0601020308'),(6,'30 cours Mirabeau',13100,'Aix-en-Provence','France','0601020309'),(7,'35 rue de la Paix',67000,'Strasbourg','France','0601020310'),(8,'40 rue du Faubourg Saint-Antoine',75012,'Paris','France','0601020311'),(9,'45 rue de la Pompe',75116,'Paris','France','0601020312'),(10,'50 boulevard Saint-Germain',75005,'Paris','France','0601020313'),(61,'gyugyu',5412,'Kuruktulu','Yougoslavie','0621849081'),(62,'gyugyu',5412,'Kuruktulu','Yougoslavie','0621849081'),(63,'gyugyu',1144,'ll','ll','0621849081'),(64,'11',5412,'11','11','0621849081'),(65,'mm',5412,'Kuruktulu','Yougoslavie','0621849081'),(66,'Rue ChateauBriant',31000,'Toulouse','Yougoslavie','0621849081'),(67,'1',5412,'Kuruktulu','Yougoslavie','0621849081'),(68,'sfs',72000,'fsdf','sdfs','0761150226');
+INSERT INTO `adress` VALUES (1,'5 rue des grillons',66500,'Perpignan','France','0601020304'),(2,'10 avenue des Champs-Élysées',75008,'Paris','France','0601020305'),(3,'15 boulevard de la Liberté',31000,'Toulouse','France','0601020306'),(4,'20 rue de la République',69002,'Lyon','France','0601020307'),(5,'25 rue Sainte-Catherine',33000,'Bordeaux','France','0601020308'),(6,'30 cours Mirabeau',13100,'Aix-en-Provence','France','0601020309'),(7,'35 rue de la Paix',67000,'Strasbourg','France','0601020310'),(8,'40 rue du Faubourg Saint-Antoine',75012,'Paris','France','0601020311'),(9,'45 rue de la Pompe',75116,'Paris','France','0601020312'),(10,'50 boulevard Saint-Germain',75005,'Paris','France','0601020313'),(68,'sfs',72000,'fsdf','sdfs','0761150226');
 /*!40000 ALTER TABLE `adress` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -68,33 +68,7 @@ INSERT INTO `equipement` VALUES (6,'Produits de nettoyage','produit.svg'),(9,'Ea
 /*!40000 ALTER TABLE `equipement` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `favoris`
---
 
-DROP TABLE IF EXISTS `favoris`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `favoris` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `logement_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `logement_id` (`logement_id`),
-  KEY `user_id` (`user_id`),
-  CONSTRAINT `favoris_ibfk_1` FOREIGN KEY (`logement_id`) REFERENCES `logement` (`id`),
-  CONSTRAINT `favoris_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `favoris`
---
-
-LOCK TABLES `favoris` WRITE;
-/*!40000 ALTER TABLE `favoris` DISABLE KEYS */;
-/*!40000 ALTER TABLE `favoris` ENABLE KEYS */;
-UNLOCK TABLES;
 
 --
 -- Table structure for table `logement`
@@ -133,8 +107,11 @@ CREATE TABLE `logement` (
 
 LOCK TABLES `logement` WRITE;
 /*!40000 ALTER TABLE `logement` DISABLE KEYS */;
-INSERT INTO `logement` VALUES (1,'Jolie appartement situé au calme','Séjournez dans cet appartement cosy situé en plein cœur de Paris. Il dispose d\'une chambre lumineuse, d\'une cuisine entièrement équipée, d\'un salon confortable et d\'une salle de bain privée. Parfaitement situé près des principales attractions, cafés et boutiques.',50,3,3,2,4,1,1,1,1,100),(2,'Loft moderne avec vue sur la mer','Loft spacieux et moderne avec une vue imprenable sur la mer. Comprend une chambre avec un lit king-size, une cuisine équipée et un balcon.',120,2,1,1,2,1,2,2,2,38),(3,'Studio charmant proche des musées','Studio confortable situé à proximité des principaux musées. Idéal pour les couples ou les voyageurs en solo.',70,1,1,1,2,1,3,3,3,250),(4,'Maison familiale avec jardin','Grande maison familiale avec un jardin spacieux. Parfaite pour les familles avec enfants. Proche des parcs et des écoles.',150,5,4,2,6,1,4,4,4,200),(5,'Appartement lumineux au centre-ville','Appartement lumineux avec une grande fenêtre donnant sur la rue principale. Proche des restaurants et des boutiques.',90,2,2,1,4,1,5,5,5,150),(6,'Petit cottage à la campagne','Charmant petit cottage situé en pleine campagne. Idéal pour une escapade tranquille.',60,2,1,1,3,1,6,6,6,99),(7,'Penthouse de luxe avec terrasse','Penthouse de luxe avec une grande terrasse offrant une vue panoramique sur la ville. Comprend trois chambres et deux salles de bain.',300,4,3,2,6,1,7,7,7,174),(8,'Appartement confortable près de la gare','Appartement confortable et bien équipé, situé à deux pas de la gare principale. Pratique pour les voyageurs en transit.',80,2,1,1,3,1,8,8,8,130),(9,'Villa spacieuse avec piscine','Villa spacieuse avec une grande piscine et un jardin privé. Parfaite pour les groupes ou les familles nombreuses.',250,6,5,3,10,1,9,9,9,120),(10,'Chalet rustique en montagne','Chalet rustique et chaleureux situé en montagne. Idéal pour les amateurs de ski et de randonnée.',110,3,3,2,5,1,10,10,10,100),(46,'Maison','très peu de place',15,2,2,2,4,1,5,12,61,111),(47,'Maison','très peu de place',15,2,2,2,4,1,5,12,62,111),(48,'ll','ll',23,2,2,2,2,1,2,12,63,2),(49,'11','11',11,1,1,1,1,1,2,12,64,11),(50,'appart','bien situé',562,1,2,1,3,1,2,12,65,47),(51,'Grand chateau','Chateau du XIV siècle, ayant appartenu à Mimi Mathy',1289,10,10,10,20,1,5,12,66,482),(52,'Appartement','Jolie appartement bien situé',200,2,2,2,2,1,5,12,67,200),(53,'dsf','dsf',1,1,1,1,1,1,3,15,68,1);
-/*!40000 ALTER TABLE `logement` ENABLE KEYS */;
+INSERT INTO `logement` VALUES (1,'Appartement moderne en plein centre', 'Appartement moderne, À proximité des attractions principales et des transports publics.', 95, 2, 1, 1, 4, 1, 1, 1, 1, 100),
+(2,'Maison de vacances avec vue panoramique', 'Maison de vacances spacieuse offrant une vue panoramique sur la ville. Parfaite pour les escapades en famille ou entre amis.', 200, 3, 2, 2, 6, 1, 2, 2, 2, 38),
+(3,'Studio cosy près des boutiques', 'Studio confortable idéalement situé près des boutiques et des restaurants. Parfait pour les voyageurs en solo ou en couple.', 85, 1, 1, 1, 2, 1, 3, 3, 3, 250),
+(4,'Maison d\'architecte avec piscine privée', 'Magnifique maison d\'architecte avec piscine privée. Idéale pour les vacances en famille dans un cadre luxueux.', 300, 4, 3, 2, 8, 1, 4, 4, 4, 200),
+(5,'Appartement familial proche des écoles', 'Spacieux appartement familial situé à proximité des écoles et des parcs. Idéal pour les familles avec enfants.', 110, 3, 2, 1, 5, 1, 5, 5, 5, 150);/*!40000 ALTER TABLE `logement` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -187,35 +164,13 @@ CREATE TABLE `media` (
 
 LOCK TABLES `media` WRITE;
 /*!40000 ALTER TABLE `media` DISABLE KEYS */;
-INSERT INTO `media` VALUES (1,'img1.jpg',52),(2,'img2.png',2),(3,'img3.jpeg',3),(4,'img4.jpeg',4),(5,'img5.jpg',5),(6,'img6.jpg',6),(7,'img7.jpg',7),(8,'img8.jpg',8),(9,'img9.jpg',9),(10,'img10.jpg',10),(11,'66729efc43f17_d037fa5a-1b6f-4202-af09-f90bbeada831.jpg',46),(12,'6672af0ea8888_d037fa5a-1b6f-4202-af09-f90bbeada831.jpg',47),(13,'6673cde12a5a5_611b18ce-a6b9-46de-bcbe-caa22e7048d7.jpeg',48),(14,'6673d656ea1a8_ef01caf4-ec1b-4339-adfc-64e72409312b.jpeg',49),(15,'6673e86440919_8765d62b-55ad-4897-8903-eda70c73b3d1.jpeg',50),(16,'66742897abc13_40a4477b-13e3-42f6-8d33-d91c3d6715ea.jpeg',51),(17,'667572c8e0359_pic_du_canigou.jpg',52),(18,'6688176c4f3c9_appartement-luxe-paris-meero-img~c4c159d906f54a72_4-3174-1-80e7336.jpg',53);
+INSERT INTO `media` VALUES (1,'img1.jpg',52),(2,'img5.png',2),(3,'img35.jpeg',3),(4,'img29.jpeg',4),(5,'img14.jpg',5);
 /*!40000 ALTER TABLE `media` ENABLE KEYS */;
 UNLOCK TABLES;
 
---
--- Table structure for table `pays`
---
 
-DROP TABLE IF EXISTS `pays`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `pays` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `pays`
---
 
-LOCK TABLES `pays` WRITE;
-/*!40000 ALTER TABLE `pays` DISABLE KEYS */;
-INSERT INTO `pays` VALUES (1,'France');
-/*!40000 ALTER TABLE `pays` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `reservation`
 --
 
@@ -271,8 +226,7 @@ CREATE TABLE `type_logement` (
 
 LOCK TABLES `type_logement` WRITE;
 /*!40000 ALTER TABLE `type_logement` DISABLE KEYS */;
-INSERT INTO `type_logement` VALUES (1,'luxe','img.png',1),(2,'cabanes perchées','img1.png',1),(3,'Avec vue','img2.png',1),(4,'Campagne','img3.png',1),(5,'Chateaux','img4.png',1),(6,'Fermes','img5.png',1),(7,'Tendances','img6.png',1),(8,'Camping','img7.png',1),(9,'Atypique','img8.png',1),(10,'Arctique','img9.png',1);
-/*!40000 ALTER TABLE `type_logement` ENABLE KEYS */;
+INSERT INTO `type_logement` VALUES (1,'luxe','img.png',1),(3,'villa','img2.png',1),(4,'appartement','img3.png',1),(5,'Chateaux','img4.png',1),(8,'Camping','img7.png',1);/*!40000 ALTER TABLE `type_logement` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -288,8 +242,9 @@ CREATE TABLE `user` (
   `password` varchar(255) DEFAULT NULL,
   `lastname` varchar(255) DEFAULT NULL,
   `firstname` varchar(255) DEFAULT NULL,
-  `is_active` tinyint(1) DEFAULT NULL,
+  `is_active` tinyint(1) NOT NULL DEFAULT '1',  
   `adress_id` int(11) DEFAULT NULL,
+  `is_admin` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   KEY `adress_id` (`adress_id`),
   CONSTRAINT `user_ibfk_1` FOREIGN KEY (`adress_id`) REFERENCES `adress` (`id`)
@@ -302,7 +257,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'user1@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Dupont','Jean',1,1),(2,'user2@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Martin','Jacques',1,2),(3,'user3@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Bernard','Pierre',1,3),(4,'user4@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Thomas','Paul',1,4),(5,'user5@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Petit','Nicolas',1,5),(6,'user6@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Robert','Maxime',1,6),(7,'user7@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Richard','François',1,7),(8,'user8@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Lefevre','Julien',1,8),(9,'user9@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Durand','Jérôme',1,9),(10,'user10@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Moreau','Benjamin',1,10),(12,'dam51@hotmail.fr','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','ricard','damien',1,NULL),(13,'azerty@zoulou.com','$2y$10$DPe9KBhAWVXO01MtMgNhcehBqFhoA2LyaQOzyk.yCT8rWM4xFcGUu','ricard','damien',1,NULL),(14,'azertyqq@zoulou.com','$2y$10$T/r6.CqkD0F30LJ8om.IFueelp/1BntFnB7TBLV.QUF4MU53ue0jS','ricard','damien',1,NULL),(15,'admin@admin.com','$2y$10$hOFGMMOaRzkaC/Mr.i65h.gqxn0DOvMkxqxY0Ao5wtwIrWaQ0SjIW','d','F',1,NULL);
+INSERT INTO `user` VALUES (1,'user1@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Dupont','Jean',1,1,NULL),(2,'user2@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Martin','Jacques',1,2,NULL),(3,'user3@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Bernard','Pierre',1,3,NULL),(4,'user4@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Thomas','Paul',1,4,NULL),(5,'user5@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Petit','Nicolas',1,5,NULL),(6,'user6@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Robert','Maxime',1,6,NULL),(7,'user7@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Richard','François',1,7,NULL),(8,'user8@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Lefevre','Julien',1,8,NULL),(9,'user9@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Durand','Jérôme',1,9,NULL),(10,'user10@example.com','$2y$10$NfSuSVCA1VFfffhk/6IX4.vGRlzI9axiV933qvRkksuTNEr1ncFrS','Moreau','Benjamin',1,10,NULL),(15,'admin@admin.com','$2y$10$hOFGMMOaRzkaC/Mr.i65h.gqxn0DOvMkxqxY0Ao5wtwIrWaQ0SjIW','d','F',1,NULL,1);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -342,4 +297,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-07-05 23:14:04
+-- Dump completed on 2024-07-06 15:26:50

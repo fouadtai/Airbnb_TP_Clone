@@ -9,14 +9,20 @@ use Core\Model\Model;  // Importe la classe Model du namespace Core\Model
 class User extends Model
 {
     // Propriétés publiques de la classe User
-    public string $email;       // Adresse email de l'utilisateur
-    public string $password;    // Mot de passe de l'utilisateur
-    public string $lastname;    // Nom de famille de l'utilisateur
-    public string $firstname;   // Prénom de l'utilisateur
-    public bool $is_active;     // Indicateur d'activation de l'utilisateur (actif ou non)
-    public ?int $adress_id;     // ID de l'adresse de l'utilisateur (peut être null)
+    public string $email;      
+    public string $password;    
+    public string $lastname;    
+    public string $firstname;   
+    public bool $is_active;     
 
-    public Adress $adress;      // Propriété d'association représentant l'adresse de l'utilisateur
+    public bool $is_admin;
+    public ?int $adress_id;     
+
+    public Adress $adress;    
+    
+    
+    public function isAdmin(): bool
+    {
+        return $this->is_admin === true;
+    }
 }
-
-?>
