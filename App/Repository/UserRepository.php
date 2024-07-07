@@ -34,8 +34,8 @@ class UserRepository extends Repository
 
         // Requête SQL pour insérer un nouvel utilisateur (chaque fois qu'il y a des paramètres dynamiques!)
         $query = sprintf(
-            'INSERT INTO %s (`email`, `password`, `firstname`, `lastname`, `is_active`) 
-            VALUES (:email, :password, :firstname, :lastname, :is_active)',
+            'INSERT INTO %s (`email`, `password`, `firstname`, `lastname`, `is_active`, `is_type`) 
+            VALUES (:email, :password, :firstname, :lastname, :is_active, :is_type)',
             $this->getTableName()
         );
 

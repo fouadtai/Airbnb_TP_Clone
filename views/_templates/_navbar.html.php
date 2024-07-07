@@ -68,7 +68,7 @@ use Core\Session\Session;
     <nav>
       <ul class="profile-menu d-flex align-items-center">
         <li class="nav-item">
-          <a class="nav-link custom-link" href="/add_logement">Devenir hôte</a>
+          <a class="nav-link custom-link" href="/add_logement">Mettre son bien à louer</a>
         </li>
         <li class="nav-item">
           <a class="nav-link custom-link" href="/">

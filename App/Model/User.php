@@ -14,15 +14,8 @@ class User extends Model
     public string $lastname;    
     public string $firstname;   
     public bool $is_active;     
-
-    public bool $is_admin;
+    public string $is_type;
     public ?int $adress_id;     
-
     public Adress $adress;    
     
-    
-    public function isAdmin(): bool
-    {
-        return $this->is_admin === true;
-    }
 }

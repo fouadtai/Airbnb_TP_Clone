@@ -55,8 +55,8 @@ class LogementController extends Controller
 
 
   /**
-   * Methode qui renvoie la vue du détail d'un logement par son ID.
-   * @param int $id L'ID du logement à afficher
+   * Methode qui renvoie la vue du détail d'un logement par son id.
+   * @param int $id 
    */
   public function getLogementById(int $id): void
   {

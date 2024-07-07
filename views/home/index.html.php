@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="accueil text-center my-5">
     <h1 class="titre-principal display-4 animate__animated animate__fadeIn" style="color: #FF385C;">
-      Bienvenue sur <strong>Rbnb</strong>
+      Bienvenue sur Airbnb
     </h1>
     <p class="sous-titre lead animate__animated animate__fadeIn animate__delay-1s" style="color: #717171;">
       Découvrez des logements uniques et des endroits magnifiques. <br> Réservez dès maintenant pour une expérience inoubliable.
